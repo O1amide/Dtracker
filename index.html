@@ -610,3 +610,16 @@
         setInterval(() => {
             const now = new Date();
             if (now.getHours() === 0 && now.getMinutes() === 0) {
+                displayCurrentDate();
+                // Reset for new day if previous day was completed
+                if (isDayCompleted) {
+                    completedTasks.clear();
+                    isDayCompleted = false;
+                    renderTasks();
+                    updateUI();
+                }
+            }
+        }, 60000); // Check every minute
+    </script>
+</body>
+</html>
